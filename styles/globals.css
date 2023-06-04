@@ -1,0 +1,193 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/scrollbar";
+@import "swiper/css/effect-fade";
+
+html {
+  scroll-behavior: smooth;
+}
+/* image popup */
+img.mfp-img {
+  box-shadow: 0 0 8px rgb(0 0 0 / 60%);
+  position: absolute;
+  max-height: 392px;
+  padding: 0 !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mfp-img-container .mfp-content {
+  max-width: 400px !important;
+}
+.mfp-img-container .mfp-close {
+  top: -110px;
+  right: -24px;
+}
+
+.home-banner:after {
+  z-index: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+.video-bg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .color_switch {
+    top: 71px;
+    right: 13px;
+  }
+  .demo-back-link {
+    right: 13px;
+    top: 130px;
+  }
+}
+
+.glitch-home h1 {
+  color: #fff !important;
+}
+.glitch-home .lead {
+  color: #fff !important;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .container {
+    width: 950px;
+  }
+  .about-me .img img {
+    max-width: 100%;
+  }
+  .header-left .nav-menu li .nav-link {
+    padding: 12px 30px;
+  }
+}
+
+.header-left .hl-top:after {
+  content: "";
+  width: 310px;
+  height: 310px;
+}
+.header-left .hl-top h5 {
+  margin: 15px 0 0;
+  font-size: 13px;
+}
+.header-left .hl-top .img {
+  width: 100px;
+  height: 100px;
+}
+
+
+.project-link{
+  background-color: #2fbf71;
+  width: 50%;
+  text-align: center;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+}
+.project-link a{
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+.project-link:hover{
+  width: 80%;
+  transition: ease 0.5s;
+}
+
+.front-outer-border{
+  @apply bg-gray-900 h-full w-full flex flex-col
+}
+.front-outer-border2{
+  @apply bg-gray-900 h-screen w-screen flex flex-col justify-center text-center
+}
+.front-outer-border2 button{
+  @apply w-1/4 self-center rounded-md
+}
+
+.front-inner-border{
+  @apply p-20 flex flex-col 
+}
+
+.front-btn-div{
+  @apply flex justify-center
+}
+.front-btn-div div{
+  @apply m-10 mt-0
+}
+
+
+.front-page{
+  @apply h-screen
+}
+
+.box0{
+  @apply w-full flex
+}
+
+.box0 div{
+  @apply p-4
+}
+
+.box1{
+  @apply flex w-full flex-col w-1/2 p-4
+}
+
+.box1 div{
+  @apply mb-4 p-0
+}
+.box1 div input{
+  @apply w-full
+}
+
+.box2{
+  @apply w-1/2
+}
+.box2 textarea{
+  @apply w-full h-4/5
+}
+
+.yellow-border{
+  border: 4px solid rgb(231, 224, 12);
+  margin: 5rem 0;
+  padding: 2rem;
+  box-shadow: 10px 10px 2px rgb(16, 15, 15);
+}
+
+.yellow-border div input{
+  width: 40%;
+  margin-bottom: 2rem;
+}
+.yellow-border div textarea{
+  width: 82%;
+}
+
+.yellow-border label{
+  font-weight: normal;
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+}
+
+
+.front-outer-border3{
+  @apply h-screen text-center
+}
+.front-outer-border3 h1{
+  @apply mb-10
+}
+.front-outer-border3 button{
+  @apply w-1/6 m-5 p-3
+}
+.yellow-border button, .end-btn{
+ @apply px-4 py-2 bg-green-500 text-white rounded mt-2 w-52
+}
