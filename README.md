@@ -1,3 +1,5 @@
+###YourFolio
+
 ## Inspiration
 The inspiration for the project "YourFolio" came from the need to simplify the process of creating professional portfolio websites. Many individuals, whether they are job seekers, freelancers, or professionals in various fields, struggle with designing and developing their own portfolio websites. The aim was to create a tool that allows users to easily generate customized and visually appealing portfolio websites without the need for extensive coding knowledge.
 
