@@ -61,9 +61,9 @@ export default function PortFolioPage() {
     const portfolioUrl = `${baseUrl}/${username}`;
     return portfolioUrl;
   };
-
-  const downloadCode = () => {
-    const htmlContent = generateHTMLCode(portfolioData); // Generate the HTML code based on the portfolio data
+  
+   const downloadCode = () => {
+    const htmlContent = generateHTMLCode(productInfo); // Generate the HTML code based on the portfolio data
     const fileName = "portfolio_website.html";
 
     const element = document.createElement("a");
@@ -73,73 +73,189 @@ export default function PortFolioPage() {
     element.click();
   };
 
-  const generateHTMLCode = (portfolioData) => {
-    const { name, about, education, experiences, selectedSkills, socialLink } =
-      portfolioData;
+  const generateHTMLCode = (productInfo) => {
 
     // Generate the HTML code dynamically based on the portfolio data
     return `
-          <html>
-            <head>
-              <title>My Portfolio Website</title>
-              <link rel="stylesheet" href="path/to/styles.css">
-            </head>
-            <body>
-              <header>
-                <h1>${name}</h1>
-              </header>
-              <main>
-                <section>
-                  <h2>About Me</h2>
-                  <p>${about}</p>
-                </section>
-                <section>
-                  <h2>Education</h2>
-                  <ul>
-                    ${education
-                      .map(
-                        (edu) =>
-                          `<li>${edu.school}, ${edu.grade}, ${edu.passDate}</li>`
-                      )
-                      .join("")}
-                  </ul>
-                </section>
-                <section>
-                  <h2>Experience</h2>
-                  <ul>
-                    ${experiences
-                      .map(
-                        (exp) =>
-                          `<li>${exp.company}, ${exp.joinedYear}, ${exp.description}</li>`
-                      )
-                      .join("")}
-                  </ul>
-                </section>
-                <section>
-                  <h2>Skills</h2>
-                  <ul>
-                    ${selectedSkills
-                      .map((skill) => `<li>${skill.label}</li>`)
-                      .join("")}
-                  </ul>
-                </section>
-                <section>
-                  <h2>Social Links</h2>
-                  <ul>
-                    ${socialLink
-                      .map(
-                        (link) =>
-                          `<li>${link.wname}: <a href="${link.wlink}">${link.wlink}</a></li>`
-                      )
-                      .join("")}
-                  </ul>
-                </section>
-              </main>
-              <footer>
-                <p>&copy; 2023 - Website of ${name}</p>
-              </footer>
-            </body>
-          </html>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Resume</title>
+      <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      text-transform: uppercase;
+    }
+    
+    main {
+      padding: 20px;
+    }
+    
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    
+    p {
+      margin-top: 5px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 5px;
+    }
+    
+    .section {
+      margin-bottom: 20px;
+    }
+    
+    .section h2 {
+      color: #333;
+      font-size: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    
+    .section ul {
+      margin-left: 20px;
+    }
+    
+    .section ul li:before {
+      
+      color: #333;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    
+    .section ul li:last-child {
+      margin-bottom: 0;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    footer p {
+      margin: 0;
+    }
+    
+    a {
+      color: #333;
+    }
+      </style>
+    </head>
+    <body>
+      <header>
+        <h1>${name}</h1>
+      </header>
+      <main>
+        <section class="section">
+          <h2>About Me</h2>
+          <p>${about}</p>
+          <p style="margin:0;">📌 ${location}</p>
+          <p style="margin:0;">✉ ${emailid}</p>
+        </section>
+        <section class="section">
+            <h2>Social Links</h2>
+            <ul style="display: flex; flex-wrap: wrap;">
+                ${socialLink
+                    .map(
+                      (link) =>
+                        `<li style="background-color: #333; color: #fff; padding: 0.5rem 0.7rem; border-radius: 10px; margin: 0 0.5rem 0.3rem 0; font-size: small;"><a href="${link.wlink}"></a>${link.wname}</li>`
+                    )
+                    .join("")}
+            </ul>
+          </section>
+        <section class="section">
+          <h2>Education</h2>
+          <ul>
+            ${education
+                .map(
+                  (edu) =>
+                    `<li>
+                        <p style="margin: 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large; font-weight: 600;">${edu.school} | ${edu.location}</p>
+                        <p style="margin: 0; font-size: small;">Grade: ${edu.grade}</p>
+                        <p style="margin: 0; font-size: small;">Passing Date: ${edu.passDate}</p>
+                        </li>`
+                )
+                .join("")}
+          </ul>
+        </section>
+        <section class="section">
+          <h2>Experience</h2>
+          <ul>
+            ${experiences
+                .map(
+                  (exp) =>
+                    `<li>
+                        <p style="margin: 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large; font-weight: 600;">${exp.position} | ${exp.company} | ${exp.location}</p>
+                        <p style="margin: 0; font-size: small;">${exp.joinedYear} - ${exp.resYear}</p>
+                        <p style="margin: 0; font-size: small;">${exp.description}</p>
+                        </li>`
+                )
+                .join("")}
+          </ul>
+        </section>
+        <section class="section">
+          <h2>Skills</h2>
+          <ul style="display: flex; flex-wrap: wrap;">
+            ${selectedSkills
+                .map((skill) => `<li style="background-color: #333; color: #fff; padding: 0.5rem 0.7rem; border-radius: 10px; margin: 0 0.5rem 0.3rem 0; font-size: small;">${skill.label}</li>`)
+                .join("")}
+    
+          </ul>
+        </section>
+        <section class="section">
+            <h2>Projects</h2>
+            <ul>
+                ${projects
+                    .map(
+                      (projects) =>
+                        `<li>
+                            <p style="margin: 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large; font-weight: 600;">${projects.title} | ${projects.link}</p>
+                            <p style="margin: 0; font-size: small;"> <b>Techstacks : </b> ${projects.techstack}</p>
+                            <p style="margin: 0; font-size: small;">${projects.description}</p>
+                        </li>`
+                    )
+                    .join("")}
+            </ul>
+          </section>
+      </main>
+      <footer>
+        <p>&copy; 2023 - Resume of ${name}</p>
+      </footer>
+    </body>
+    </html>
+    
         `;
   };
   return (
@@ -210,6 +326,9 @@ export default function PortFolioPage() {
           emailid={emailid}
           phoneNumber={phoneNumber}
         />
+        <div className="code-download">
+        <button className="px-btn px-btn-theme" onClick={downloadCode}>Download Resume</button>
+        </div>
       </Layout>
     </>
   );
