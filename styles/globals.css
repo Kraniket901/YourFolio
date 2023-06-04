@@ -191,3 +191,9 @@ iframe {
 .yellow-border button, .end-btn{
  @apply px-4 py-2 bg-green-500 text-white rounded mt-2 w-52
 }
+.code-download{
+  background-color:#10101a;
+  display:flex;
+  justify-content:center;
+  padding: 0 0 3rem 0;
+}
